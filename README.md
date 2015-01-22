@@ -3,17 +3,18 @@ AngularJS inheritance for model classes. Recommended for Java developers
 
 
 - Define the entity with multiple inheritance in one line:
-
-Idol.super = Define(Idol).as([Entity, Followable]);
+```javascript
+      Idol.super = Define(Idol).as([Entity, Followable]);
+```
 - Call the super constructor to initialize the instance
 
-      
+```javascript      
         var Idol = function(properties) {
           Idol.super(this, properties);
           //custom properties
           this.team = properties.team;
         };
-        
+```
         
   - Full example
   
