@@ -1,5 +1,5 @@
 # ngInheritance
-AngularJS inheritance for model classes. Recommended for Java developers
+AngularJS inheritance for model classes
 
 
 - Define the entity with multiple inheritance in one line:
