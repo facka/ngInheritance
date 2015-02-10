@@ -11,6 +11,8 @@ bower install ng-inheritance
 ```javascript
       Idol.super = Define(Idol).as(['Entity', 'Followable']);
 ```
+All properties are flatten to Idol and the methods of the parents too. If there is a colision with properties and methods names between parents, it will take the last one in the list. Anyway you can override a method and also you will have a reference to the parents methods if you want to call them.
+
 - Call the super constructor to initialize the instance
 
 ```javascript
