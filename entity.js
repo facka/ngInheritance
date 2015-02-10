@@ -12,5 +12,13 @@
       return 'something that calculates localized country';
     };
 
+    Entity.prototype.setDisplayName = function(name) {
+      this.displayName = name;
+    };
+
+    Entity.prototype.toString = function() {
+      return "I am entity! " + this.displayName;
+    };
+
     return Entity;
   }]);

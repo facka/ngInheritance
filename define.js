@@ -1,6 +1,6 @@
 var ngInheritance = angular.module("ngInheritance", []);
 
-ngInheritance.factory("Define", [function() {
+ngInheritance.factory("Define", ['$injector', function($injector) {
 
     var Define = function(child) {
 
@@ -12,27 +12,27 @@ ngInheritance.factory("Define", [function() {
 
 
       return {
-        as : function(parent) {
-          if (angular.isArray(parent)) {
-            for (var i in parent) {
-              extend(child, parent[i]);
-            }
+        as : function(parents) {
+          if (!angular.isArray(parents)) {
+            parents = [parents];
           }
-          else {
-            extend(child, parent);
-          }
+          child.parents = {};
+
+          parents.forEach(function(parent) {
+            var Parent = $injector.get(parent);
+            extend(child, Parent);
+            child.parents[parent] = Parent.prototype;
+          });
+
           child.prototype.constructor = child;
+
           return function(/*this, arguments*/) {
             var args = Array.prototype.slice.call(arguments);
             var self = args.shift();
-            if (angular.isArray(parent)) {
-              for (var i in parent) {
-                parent[i].apply(self, args);
-              }
-            }
-            else {
-              parent.apply(self, args);
-            }
+            parents.forEach(function(parent) {
+                var Parent = $injector.get(parent);
+                Parent.apply(self, args);
+            });
           };
         }
       };

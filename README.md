@@ -9,20 +9,28 @@ bower install ng-inheritance
 
 - Define the entity with multiple inheritance in one line:
 ```javascript
-      Idol.super = Define(Idol).as([Entity, Followable]);
+      Idol.super = Define(Idol).as(['Entity', 'Followable']);
 ```
 - Call the super constructor to initialize the instance
 
-```javascript      
+```javascript
         var Idol = function(properties) {
           Idol.super(this, properties);
           //custom properties
           this.team = properties.team;
         };
 ```
-        
+
+- Call parents functions
+
+```javascript
+    Idol.prototype.toString = function() {
+      return Idol.parents.Entity.toString.apply(this) + ", " + Idol.parents.Followable.toString.apply(this) + ", " + "I am an Idol!";
+    };
+```
+
   - Full example
-  
+
 ```javascript
     angular.module('ngApp').factory('Entity', [function() {
           var Entity = function(properties) {
@@ -40,24 +48,28 @@ bower install ng-inheritance
 
           return Entity;
         }]);
-      
-    
 
-      
-        angular.module('ngApp').factory('Idol', ['Define','Entity','Followable',function(Define, Entity, Followable) {
+
+
+
+        angular.module('ngApp').factory('Idol', ['Define',function(Define) {
           var Idol = function(properties) {
             Idol.super(this, properties);
             this.team = properties.team;
           };
 
-          Idol.super = Define(Idol).as([Entity, Followable]);
+          Idol.super = Define(Idol).as(['Entity', 'Followable']);
+
+          Idol.prototype.toString = function() {
+            return Idol.parents.Entity.toString.apply(this) + ", " + Idol.parents.Followable.toString.apply(this) + ", " + "I am an Idol!";
+          };
 
           return Idol;
         }]);
-      
-    
 
-      
+
+
+
         angular.module('ngApp').factory('Followable', [function() {
           var Followable = function(properties) {
             this.followers =  properties.followers || [];
@@ -73,5 +85,5 @@ bower install ng-inheritance
 
           return Followable;
         }])
-   
-```       
+
+```

@@ -11,5 +11,9 @@ angular.module('ngApp').factory('Followable', [function() {
       this.followers.push(entity) ;
     };
 
+    Followable.prototype.toString = function() {
+      return "I am followable with " + this.followers.length + " followers";
+    };
+
     return Followable;
   }]);
