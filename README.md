@@ -1,5 +1,9 @@
 # ngInheritance
-AngularJS inheritance for model classes
+AngularJS classical inheritance for model classes in a less verbose way
+
+## Install
+
+bower install ng-inheritance
 
 
 - Define the entity with multiple inheritance in one line:
