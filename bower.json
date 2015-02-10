@@ -1,0 +1,26 @@
+{
+  "name": "ngInheritance",
+  "version": "0.0.0",
+  "homepage": "https://github.com/facka/ngInheritance",
+  "authors": [
+    "Facundo Crego facundo.crego@gmail.com"
+  ],
+  "description": "Less verbose Classical Inheritance for AngularJS",
+  "main": "define.js",
+  "keywords": [
+    "angular",
+    "inheritance",
+    "POO"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular":"~1.2.0"
+  }
+}
