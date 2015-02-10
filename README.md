@@ -5,6 +5,7 @@ AngularJS classical inheritance for model classes in a less verbose way
 
 bower install ng-inheritance
 
+## Documentation
 
 - Define the entity with multiple inheritance in one line:
 ```javascript
