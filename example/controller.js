@@ -16,7 +16,7 @@ angular.module('ngApp').controller('TestController', ['$scope','$timeout','Idol'
         followers: ['Juan','Pedro','Carlitos']
       });
       console.log(idol.toString());
-      idol.setDisplayName('Lionel Messi (10)');
+      //idol.setDisplayName('Lionel Messi (10)');
       console.log(idol);
       console.log(idol.toString());
       objects.push(idol);
