@@ -31,7 +31,7 @@ All properties are flatten to Idol and the methods of the parents too. If there 
     };
 ```
 
-  - Full example
+##  Full example
 
 Diagram
 
