@@ -34,59 +34,61 @@ All properties are flatten to Idol and the methods of the parents too. If there 
   - Full example
 
 ```javascript
-    angular.module('ngApp').factory('Entity', [function() {
-          var Entity = function(properties) {
-            this.id =  properties.id;
-            this.link = properties.link;
-            this.icon = properties.icon;
-            this.role = properties.role;
-            this.birthday = properties.birthday;
-            this.displayName = properties.displayName;
-          };
+      angular.module('ngApp').factory('Shape', [function() {
+            var Shape = function(properties) {
+              this.position = properties.position;
+            };
 
-          Entity.prototype.getLocalizedCountry = function() {
-            return 'something that calculates localized country';
-          };
+            Shape.prototype.toString = function() {
+              return "I am a Shape at " + this.position;
+            };
 
-          return Entity;
-        }]);
+            Shape.prototype.move = function(x, y) {
+              this.position.x += x;
+              this.position.y += y;
+            };
 
+            return Shape;
+      }]);
 
+      angular.module('ngApp').factory('Rectangle', ['Define', function(Define) {
+            var Rectangle = function(properties) {
+              Rectangle.super(this, properties);
+              this.width = properties.width;
+              this.height = properties.height;
+            };
 
+            Rectangle.super = Define(Rectangle).as(['Shape']);
 
-        angular.module('ngApp').factory('Idol', ['Define',function(Define) {
-          var Idol = function(properties) {
-            Idol.super(this, properties);
-            this.team = properties.team;
-          };
+            Rectangle.prototype.toString = function() {
+              return "I am a Rectangle!" + JSON.stringify(this);
+            };
 
-          Idol.super = Define(Idol).as(['Entity', 'Followable']);
+            Rectangle.prototype.getArea = function() {
+              return this.width * this.height;
+            };
 
-          Idol.prototype.toString = function() {
-            return Idol.parents.Entity.toString.apply(this) + ", " + Idol.parents.Followable.toString.apply(this) + ", " + "I am an Idol!";
-          };
+            return Rectangle;
+      }]);
 
-          return Idol;
-        }]);
-
-
-
-
-        angular.module('ngApp').factory('Followable', [function() {
-          var Followable = function(properties) {
-            this.followers =  properties.followers || [];
-          };
-
-          Followable.prototype.getFollowers = function() {
-            return this.followers;
-          };
-
-          Followable.prototype.follow = function(entity) {
-            this.followers.push(entity) ;
-          };
-
-          return Followable;
-        }])
+      angular.module('ngApp').factory('Square', ['Define', function(Define) {
+            var Square = function(properties) {
+              var parentProps = {
+                  width: properties.size,
+                  height: properties.size,
+                  position: properties.position
+                };
+                Square.super(this, parentProps);
+            };
+      
+            Square.super = Define(Square).as(['Rectangle']);
+      
+            Square.prototype.toString = function() {
+              return "I am a Square!" + JSON.stringify(this);
+            };
+      
+            return Square;
+      }]);
 
 ```
 
