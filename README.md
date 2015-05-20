@@ -96,6 +96,10 @@ Diagram
 
 ```
 
+## [Live Demo](http://facka.github.io/ngInheritance/)
+
+
+
 ## Example of usage 
 
 https://github.com/facka/ngTodoList
