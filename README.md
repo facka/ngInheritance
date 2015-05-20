@@ -33,6 +33,10 @@ All properties are flatten to Idol and the methods of the parents too. If there 
 
   - Full example
 
+Diagram
+
+  - ![alt tag](https://raw.githubusercontent.com/facka/ngInheritance/master/example/shapes/shapes.jpg)
+
 ```javascript
       angular.module('ngApp').factory('Shape', [function() {
             var Shape = function(properties) {
