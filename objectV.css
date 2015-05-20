@@ -1,0 +1,101 @@
+.objectV{
+	list-style:none;
+	padding:0;
+	margin:0;
+	font-size:1em; 
+	overflow:auto;
+	
+}
+.objectV ul{padding:0; margin:0; list-style:none;}
+.objectV li > ul{padding-left:1.5em;}
+.objectV .string:before{
+	content:'(String)  : ';
+	color:#D96226;
+	font-size:0.6em;
+}
+
+.objectV .number:before{
+	content:'(Number)  : ';
+	color:red;
+	font-size:0.6em;
+}
+
+.objectV .function:before{
+	content:'(Function)  : ';
+	color:#FF9500;
+	font-size:0.6em;
+}
+
+.objectV .end:hover{
+	background:rgba(0,0,255,0.1);
+}
+.objectV .end:after{
+	content:' Click to dynamically load child content';
+	
+}
+
+.objectV .propValue{display:inline;}
+.objectV .propValue:hover{display:inline;background:yellow;}
+
+/* .objectV .title{background:rgba(0,0,0,0.02);border-bottom:1px solid rgba(0,0,0,0.1);} */
+
+.objectV .title:after{content:' : ';}
+.objectV .title:hover{background:rgba(0,0,0,0.1);}
+
+.objectV .objectTitle:before{
+	content:'';
+	display:inline-block;
+	width: 0;
+	height: 0;
+	margin-right:2px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+    border-top: 5px solid black;
+}
+.objectV .objectTitle:after{
+	content:' (Object)';
+	color:blue;
+	font-size:0.6em;
+}
+
+.objectV .arrayTitle:before{	
+	content:'';
+	display:inline-block;
+	width: 0;
+	height: 0;
+	margin-right:2px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+    border-top: 5px solid black;
+}
+.objectV .arrayTitle:after{	
+	content:' (Array)';
+	color:green;
+	font-size:0.6em;
+}
+
+.objectV .propTitle{display:inline;}
+.objectV .propTitle:after{content:' : ';}
+.objectV .propTitle:before{
+	content:' ';
+	display:inline-block;
+	background:green;
+	margin-right:5px;
+	width: 7px;
+	height: 7px; 
+    -webkit-border-radius: 50%; -moz-border-radius: 50%;
+}
+.objectV .propTitle:hover{background:#00FF00;}
+
+.objectV .close:before{
+	content:'';
+	display:inline-block;
+	width: 0;
+	height: 0;
+	margin-right:2px;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+}
+
+
